@@ -1,0 +1,20 @@
+// script(src='assets/javascripts/boot.js')
+script(src='assets/javascripts/libs/jquery.js')
+script(src='assets/javascripts/vendor/bootstrap.js')
+
+script.
+	function initMap() {
+		var map = new google.maps.Map( document.querySelector( '.canvas' ), {
+		    center : { lat: -33.8688, lng: 151.2195 },
+		    zoom   : 13
+		});
+
+		var input = $( '#pac-input' );
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push( input.get( 0 ) );
+
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+		    input.fadeIn( 300 );
+		});
+	}
+
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDUX1SdMjfsjl30ycd9-yqmrMaa-FqPWgw&libraries=places&callback=initMap', async, defer)
